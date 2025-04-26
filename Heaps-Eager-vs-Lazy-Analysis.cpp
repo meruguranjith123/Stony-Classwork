@@ -251,3 +251,97 @@ int main() {
 
     return 0;
 }
+
+/*
+Using Eager Union + Accounting Method
+
+After Operation: Insert 10
+Actual Cost so far: 0
+Total Credits: 1
+Amortized Cost (Accounting Method): 1
+-------------------------------------
+After Operation: Insert 20
+Actual Cost so far: 1
+Total Credits: 1
+Amortized Cost (Accounting Method): 2
+-------------------------------------
+After Operation: Insert 5
+Actual Cost so far: 2
+Total Credits: 2
+Amortized Cost (Accounting Method): 4
+-------------------------------------
+After Operation: Insert 1
+Actual Cost so far: 5
+Total Credits: 1
+Amortized Cost (Accounting Method): 6
+-------------------------------------
+After Operation: Insert 15
+Actual Cost so far: 6
+Total Credits: 2
+Amortized Cost (Accounting Method): 8
+-------------------------------------
+After Operation: ExtractMin (removed 1)
+Actual Cost so far: 12
+Total Credits: -1
+Amortized Cost (Accounting Method): 11
+-------------------------------------
+After Operation: ExtractMin (removed 5)
+Actual Cost so far: 16
+Total Credits: -2
+Amortized Cost (Accounting Method): 14
+-------------------------------------
+
+========== FINAL SUMMARY ==========
+Insert Operations: 5
+Extract-Min Operations: 2
+Total Actual Cost: 16
+Final Total Credits: -2
+Total Amortized Cost (Accounting): 14
+====================================
+
+Using Lazy Union + Potential Method
+
+After Operation: Insert 10
+Actual Cost so far: 0
+Potential: 1
+Amortized Cost (Potential Method): 1
+-------------------------------------
+After Operation: Insert 20
+Actual Cost so far: 0
+Potential: 2
+Amortized Cost (Potential Method): 2
+-------------------------------------
+After Operation: Insert 5
+Actual Cost so far: 1
+Potential: 3
+Amortized Cost (Potential Method): 4
+-------------------------------------
+After Operation: Insert 1
+Actual Cost so far: 3
+Potential: 4
+Amortized Cost (Potential Method): 7
+-------------------------------------
+After Operation: Insert 15
+Actual Cost so far: 6
+Potential: 5
+Amortized Cost (Potential Method): 11
+-------------------------------------
+After Operation: ExtractMin (removed 1)
+Actual Cost so far: 11
+Potential: 4
+Amortized Cost (Potential Method): 15
+-------------------------------------
+After Operation: ExtractMin (removed 5)
+Actual Cost so far: 15
+Potential: 3
+Amortized Cost (Potential Method): 18
+-------------------------------------
+
+========== FINAL SUMMARY ==========
+Insert Operations: 5
+Extract-Min Operations: 2
+Total Actual Cost: 15
+Final Potential: 3
+Total Amortized Cost (Potential): 18
+====================================
+*/
